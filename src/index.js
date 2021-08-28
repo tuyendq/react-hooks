@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { FaStar } from 'react-icons/fa';
+
+const createArray = (length) => [
+  ...Array(length)
+];
+
+function Star() {
+  return (
+    <FaStar />
+  );
+}
+
+function StarRating({totalStars = 5}) {
+  return (
+    createArray(totalStars).map((n, i) => (
+      <Star key={i} />
+    ))
+  );
+}
 
 function App() {
   return (
-    <>
-      <h1>Hello React!</h1>
-    </>
+    <StarRating totalStars={8} />
   );
 }
 
